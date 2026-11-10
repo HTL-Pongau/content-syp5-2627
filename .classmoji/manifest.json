@@ -1,0 +1,15 @@
+{
+  "repositories": {
+    "ansible-vault-pro": {
+      "pages": [],
+      "slides": [],
+      "assignments": {}
+    }
+  },
+  "general": {
+    "pages": [
+      "ansible-vault-pro-aufgabenblock-aut2"
+    ],
+    "slides": []
+  }
+}
