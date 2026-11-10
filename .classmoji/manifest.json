@@ -3,13 +3,18 @@
     "ansible-vault-pro": {
       "pages": [],
       "slides": [],
-      "assignments": {}
+      "assignments": {
+        "ansible-vault-pro": {
+          "pages": [
+            "ansible-vault-pro-aufgabenblock-aut2"
+          ],
+          "slides": []
+        }
+      }
     }
   },
   "general": {
-    "pages": [
-      "ansible-vault-pro-aufgabenblock-aut2"
-    ],
+    "pages": [],
     "slides": []
   }
 }
