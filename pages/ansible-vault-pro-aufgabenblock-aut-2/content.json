@@ -1,0 +1,938 @@
+{
+  "blocks": [
+    {
+      "id": "99b6999d-a57a-416b-ba2b-5076272b308f",
+      "type": "heading",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left",
+        "level": 1,
+        "isToggleable": false
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Ansible Vault Pro — Klartext-Passwort raus aus dem Inventory",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "4987b0fc-4bd1-4030-ad74-60efe44f3cdb",
+      "type": "paragraph",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Fach:",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " SYP 5AHIF · ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "Bereich:",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " AUT#2 (Dienstag, 10.11.2026) · ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "Abgabe:",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " git push in dein Classmoji-Repo ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "ansible-vault-pro",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " bis Donnerstag 12.11.2026, 23:59 Uhr",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "a43adc86-db30-403c-a7f8-dc6e4ccd3ed9",
+      "type": "paragraph",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [],
+      "children": []
+    },
+    {
+      "id": "160020df-5727-4300-b0df-eda83304e2c5",
+      "type": "heading",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left",
+        "level": 2,
+        "isToggleable": false
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Ausgangslage",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "76dcf856-1be5-45af-8763-68a110a2f952",
+      "type": "paragraph",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Aus AUT1 (Teil 4) kennst du das Inventory ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "~/modules/hosts",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": ": Dort steht ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "ansible_become_pass=password",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " im ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "Klartext",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " (",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "[ubuntu:vars]",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " und ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "[control:vars]",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": "). Im Lab ist das akzeptabel — in Produktion ein No-Go. Genau das ist Experte 4.3 bzw. Reflexionsfrage R4: ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "Wie löst man das „richtig\"?",
+          "styles": {
+            "italic": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " Antwort: ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "Ansible Vault",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": ".",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "31e4462f-1a37-469b-b82a-165429148810",
+      "type": "paragraph",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [],
+      "children": []
+    },
+    {
+      "id": "c56fce68-9ae1-4b30-b6dd-db70ae6701ae",
+      "type": "heading",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left",
+        "level": 2,
+        "isToggleable": false
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Aufträge",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "72bf607f-80e7-4311-9c2f-9eaeb62b7f07",
+      "type": "numberedListItem",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Vault-Datei anlegen:",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "cd ~/modules && mkdir -p group_vars/all && ansible-vault create group_vars/all/vault.yml",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " — dort ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "become_pass: password",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " eintragen (variabler Name z. B. ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "vault_become_pass",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": "). Die Klartext-Zeile ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "ansible_become_pass=…",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " aus dem Inventory ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "entfernen",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": "; stattdessen in ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "group_vars/all/main.yml",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": ": ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "ansible_become_pass: \"{{ vault_become_pass }}\"",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": ".",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "f2ba6d07-f7b1-4367-be36-c2ee134a488b",
+      "type": "numberedListItem",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Lauf testen:",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "ansible ubuntu -a \"whoami\" -o",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " mit ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "--ask-vault-pass",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " (Prompt) und danach mit ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "--vault-password-file ~/.vault_pass.txt",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " (Datei vorher ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "chmod 600",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": "!). Ausgabe muss ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "root",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " zeigen — vergleiche mit Teil 4.",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "1a8e0b62-864f-4f57-beaa-43de604e53b6",
+      "type": "numberedListItem",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Bestehende Datei verschlüsseln:",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "ansible-vault encrypt secrets.yml",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " — ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "head secrets.yml",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " zeigt danach ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "$ANSIBLE_VAULT;1.1;AES256…",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": ". Teste auch ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "ansible-vault view",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": ", ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "edit",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " und ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "rekey",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " (neues Passwort setzen).",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "7e883f2e-59fe-47b2-9c4f-9fe8f0bdd257",
+      "type": "numberedListItem",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Einzelwert inline verschlüsseln:",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "ansible-vault encrypt_string 'password' --name 'vault_become_pass'",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " — den ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "!vault |",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": "-Block direkt in ein vars-File kopieren und testen.",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "897803eb-3243-4071-bdc1-3d4567b0ca7b",
+      "type": "numberedListItem",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Control Node nicht vergessen:",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " derselbe Lauf gegen ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "ansible control -a \"whoami\" -o",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " (",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "ansible_connection=local",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": ") — auch dort darf kein Klartext-Passwort mehr stehen.",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "297adf1d-4a7a-4a59-b912-16bbc4da3640",
+      "type": "numberedListItem",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Negativ-Test:",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "ansible ubuntu -a \"whoami\" -o",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "ohne",
+          "styles": {
+            "italic": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " Vault-Passwort muss jetzt ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "fehlschlagen",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " — dokumentiere die Fehlermeldung.",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "a1123f52-44ea-4ce0-8856-795521e510e4",
+      "type": "paragraph",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [],
+      "children": []
+    },
+    {
+      "id": "1c5f67a5-627d-49b8-b534-a60ea6d08051",
+      "type": "heading",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left",
+        "level": 2,
+        "isToggleable": false
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Reflexionsfragen (aus dem Reflexionsblatt, R4)",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "882e0f5e-9209-4ac7-a936-90b97615a7bd",
+      "type": "bulletListItem",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Warum ist ein Klartext-Passwort im Inventory nur im Lab akzeptabel?",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "7a194688-3f69-43d5-9bab-64a1ceeb29f4",
+      "type": "bulletListItem",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Was ist die „richtige\" Lösung? (Vault-Passwort nur über Prompt bzw. Datei mit ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "600",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": ", niemals commiten; in Produktion: Secret Manager / Vault-Server statt ansible-vault.)",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "3fcb9c40-2705-470e-8c33-02ac240b3b48",
+      "type": "paragraph",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [],
+      "children": []
+    },
+    {
+      "id": "13181199-8b39-42a0-8108-b5532f00d9d0",
+      "type": "heading",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left",
+        "level": 2,
+        "isToggleable": false
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Abgabe im Repo (push)",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "34eaf00b-51fa-494a-8b56-4d477da7ae15",
+      "type": "bulletListItem",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "group_vars/all/vault.yml",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " (verschlüsselt — der Klartext-Inhalt darf nirgendwo im Repo stehen!) und ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "group_vars/all/main.yml",
+          "styles": {
+            "code": true
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "82b5a509-4d38-4d51-bb03-7014bec6e0ae",
+      "type": "bulletListItem",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "entsprechendes ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "hosts",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": "-Inventory ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "ohne",
+          "styles": {
+            "italic": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " Klartext-Passwort",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "7d26ae50-db02-4076-856d-ffd2478390bb",
+      "type": "bulletListItem",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "README.md",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " mit: verwendeten Befehlen, Ausgaben (",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "whoami",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " → root, ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "head",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " des Vault-Files, Negativ-Test), und Antworten auf die Reflexionsfragen",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "27f75882-2405-4330-941f-d24d6f93b44d",
+      "type": "paragraph",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Dokumentationsregel wie im Arbeitsblatt:",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " Befehl + Auszug der Ausgabe + Antwort in eigenen Worten.",
+          "styles": {}
+        }
+      ],
+      "children": []
+    }
+  ]
+}
