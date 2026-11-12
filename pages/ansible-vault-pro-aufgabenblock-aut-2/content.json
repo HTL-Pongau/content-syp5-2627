@@ -13,7 +13,7 @@
       "content": [
         {
           "type": "text",
-          "text": "Ansible Vault Pro — Klartext-Passwort raus aus dem Inventory",
+          "text": "Ansible Vault — Klartext-Passwort raus aus dem Inventory",
           "styles": {}
         }
       ],
@@ -49,7 +49,7 @@
         },
         {
           "type": "text",
-          "text": " AUT#2 (Dienstag, 10.11.2026) · ",
+          "text": " AUT#2 (Dienstag, 03.11.2026) · ",
           "styles": {}
         },
         {
@@ -66,7 +66,7 @@
         },
         {
           "type": "text",
-          "text": "ansible-vault-pro",
+          "text": "ansible-vault",
           "styles": {
             "code": true
           }
@@ -74,6 +74,70 @@
         {
           "type": "text",
           "text": " bis Donnerstag 12.11.2026, 23:59 Uhr",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "6d80e09a-eaf6-46a3-bcf0-e1e7a9eec1e6",
+      "type": "paragraph",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [],
+      "children": []
+    },
+    {
+      "id": "5617230e-3962-4da7-9e58-eccbc500d9fb",
+      "type": "heading",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left",
+        "level": 2,
+        "isToggleable": false
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Im Repo muss folgendes vorhanden sein:",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "368ff99a-53ec-438e-a66b-f4a79bf9be3f",
+      "type": "bulletListItem",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "der Obsidian Vault",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "91291eda-cd0e-450d-ad74-6d50e82ee0e1",
+      "type": "bulletListItem",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "der modules Ordner aus dem ubunut-c ansible home folder",
           "styles": {}
         }
       ],
