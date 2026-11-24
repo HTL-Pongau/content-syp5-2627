@@ -1,0 +1,1275 @@
+{
+  "blocks": [
+    {
+      "id": "752d8232-7036-4731-a0d2-3387b2febc12",
+      "type": "heading",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left",
+        "level": 1,
+        "isToggleable": false
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "📄 Projektauftrag — Raspberry Pi per Ansible deployen",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "e5b4479f-fc24-4a06-962d-b05ba7235514",
+      "type": "paragraph",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Merksatz:",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " Du bekommst einen ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "Raspberry Pi",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": ", überlegst dir ein Projekt (Webserver, Werbeblocker, Dashboard, Backup …) und setzt es ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "vollständig per Ansible",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " auf — von der frischen SD-Karte bis zum laufenden Dienst. Abgabe: git push dieses Repos + Doku + ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "Live-Demo mit Erklärung",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": ". KI ist erlaubt, muss aber deklariert und erklärbar sein (Tracks, Abschnitt 5).",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "d2818c2f-0d87-4985-9dff-ca50531b704f",
+      "type": "paragraph",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [],
+      "children": []
+    },
+    {
+      "id": "0b5df110-29c5-483b-8bb6-eb3c55dbc3a2",
+      "type": "heading",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left",
+        "level": 2,
+        "isToggleable": false
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Idee & Proposal (Pflicht vor Start)",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "bdda21e3-2566-46d3-9b34-f33cd4e056c3",
+      "type": "paragraph",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "1 Seite:",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " Idee, Zielzustand, Dienste, geplante Ansible-Features (Role, Vault, …), Risiken. Ich genehmige — dann startest du.\n Ideen: persönlicher Webserver (nginx) · Werbeblocker (Pi-hole) · Dashboard (Homer) · Backup-Ziel (rsync) · Mediabox (Kodi) · Pi-Monitoring — oder eigene Idee.",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "9a343486-050a-4e6a-910e-e80f192e5858",
+      "type": "paragraph",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [],
+      "children": []
+    },
+    {
+      "id": "82edb3aa-6037-488d-8ed6-603829db1751",
+      "type": "heading",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left",
+        "level": 2,
+        "isToggleable": false
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Setup",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "bb009657-f2a6-4d0a-bbe0-5529b8f4be43",
+      "type": "bulletListItem",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Managed Node:",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " dein Pi (Raspberry Pi OS Lite; Image vorbereitet: SSH an, eigener User, kein Passwort-Login)",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "2a4d315d-b80f-4549-a20a-30f3973ad358",
+      "type": "bulletListItem",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Control Node:",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " EDV-Raum-PC oder Laptop (wie im Docker-Lab, AUT#1)",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "a0a8602d-d938-4b4f-b00b-9f6045235014",
+      "type": "bulletListItem",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Zugriff:",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " Ed25519-Key aus AUT#1 per ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "ssh-copy-id",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": ", ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "~/.ssh/config",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": "; ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "kein root-Login",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " — ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "become",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " (wie Ubuntu im Lab)",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "d6776af5-641c-409b-8ae6-62162717f7ed",
+      "type": "paragraph",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "[pis]\npi-<name> ansible_host=192.168.x.x\n[pis:vars]\nansible_user=pi\nansible_become=true\n\n# ansible.cfg\n[defaults]\ninventory = inventory/hosts.ini\nhost_key_checking = False   # nur im Schulnetz! ",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "348a3a36-e54d-4110-bf93-85ff42307216",
+      "type": "paragraph",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [],
+      "children": []
+    },
+    {
+      "id": "7ec432bd-ff00-4561-b374-ddfad5e0974f",
+      "type": "heading",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left",
+        "level": 2,
+        "isToggleable": false
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Pflichten",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "9e1bfac0-d9ee-44c6-b6ca-6926a302ed9d",
+      "type": "bulletListItem",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Ansible-Projekt in diesem Repo mit Zielstruktur; ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "site.yml",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " deployt alles; ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "mindestens eine Role",
+          "styles": {
+            "bold": true
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "e003fffb-ec48-4f2b-84ce-47556d4aab1f",
+      "type": "bulletListItem",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Vault",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " für mind. ein Secret — im Repo nur verschlüsselt",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "701f2abd-d34a-4fd6-bf88-30f08c5a7318",
+      "type": "bulletListItem",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Idempotenz-Nachweis: zweiter Lauf ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "changed=0",
+          "styles": {
+            "code": true
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "30e2e4d2-7d23-4dae-92db-932b66f37f9f",
+      "type": "bulletListItem",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "README (Struktur, Setup, Troubleshooting)",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "fb8773db-0f1b-44e9-aa95-54adc690a026",
+      "type": "bulletListItem",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Track-Artefakt ausgefüllt (KI-Protokoll / Entscheidungslog)",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "c89a86b4-e420-4cc4-aee0-ebfcd9af8459",
+      "type": "bulletListItem",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Live-Demo 10 Min. + Erklärungsgespräch",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "0acdeb30-0aee-4953-99d6-fa578e9199b8",
+      "type": "paragraph",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "mein-projekt/            # z. B. als Ordner ansible/ in diesem Repo\n├── ansible.cfg · inventory/hosts.ini · group_vars/all.yml\n├── secrets.yml              # nur verschlüsselt! (ansible-vault)\n├── site.yml\n├── roles/<deine-role>/{tasks,handlers,templates,files,defaults}/main.yml\n└── README.md ",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "2fd53b5a-c95a-4df5-8c4d-b92d8260f7c4",
+      "type": "paragraph",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [],
+      "children": []
+    },
+    {
+      "id": "4cf595a4-c1e7-4d19-a9dd-1276ca85d46d",
+      "type": "heading",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left",
+        "level": 2,
+        "isToggleable": false
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "4. Erklären können (Demo-Gespräch)",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "3312c180-1998-435a-896a-cea513cd98f6",
+      "type": "table",
+      "props": {
+        "textColor": "default"
+      },
+      "content": {
+        "type": "tableContent",
+        "columnWidths": [
+          null,
+          null
+        ],
+        "headerRows": 1,
+        "rows": [
+          {
+            "cells": [
+              {
+                "type": "tableCell",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Feature",
+                    "styles": {}
+                  }
+                ],
+                "props": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "backgroundColor": "default",
+                  "textColor": "default",
+                  "textAlignment": "left"
+                }
+              },
+              {
+                "type": "tableCell",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Konkret an deinem Projekt",
+                    "styles": {}
+                  }
+                ],
+                "props": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "backgroundColor": "default",
+                  "textColor": "default",
+                  "textAlignment": "left"
+                }
+              }
+            ]
+          },
+          {
+            "cells": [
+              {
+                "type": "tableCell",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Role",
+                    "styles": {
+                      "bold": true
+                    }
+                  }
+                ],
+                "props": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "backgroundColor": "default",
+                  "textColor": "default",
+                  "textAlignment": "left"
+                }
+              },
+              {
+                "type": "tableCell",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Aufbau ",
+                    "styles": {}
+                  },
+                  {
+                    "type": "text",
+                    "text": "roles/",
+                    "styles": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": ", Einbindung in ",
+                    "styles": {}
+                  },
+                  {
+                    "type": "text",
+                    "text": "site.yml",
+                    "styles": {
+                      "code": true
+                    }
+                  }
+                ],
+                "props": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "backgroundColor": "default",
+                  "textColor": "default",
+                  "textAlignment": "left"
+                }
+              }
+            ]
+          },
+          {
+            "cells": [
+              {
+                "type": "tableCell",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Vault",
+                    "styles": {
+                      "bold": true
+                    }
+                  }
+                ],
+                "props": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "backgroundColor": "default",
+                  "textColor": "default",
+                  "textAlignment": "left"
+                }
+              },
+              {
+                "type": "tableCell",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Verschlüsselung, ",
+                    "styles": {}
+                  },
+                  {
+                    "type": "text",
+                    "text": "--ask-vault-pass",
+                    "styles": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": ", warum kein Klartext im Repo",
+                    "styles": {}
+                  }
+                ],
+                "props": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "backgroundColor": "default",
+                  "textColor": "default",
+                  "textAlignment": "left"
+                }
+              }
+            ]
+          },
+          {
+            "cells": [
+              {
+                "type": "tableCell",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "+1 Wahl:",
+                    "styles": {
+                      "bold": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " Handler/notify · Template (Jinja2) · when/Facts · --tags · Loops",
+                    "styles": {}
+                  }
+                ],
+                "props": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "backgroundColor": "default",
+                  "textColor": "default",
+                  "textAlignment": "left"
+                }
+              },
+              {
+                "type": "tableCell",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "eigenes Beispiel",
+                    "styles": {}
+                  }
+                ],
+                "props": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "backgroundColor": "default",
+                  "textColor": "default",
+                  "textAlignment": "left"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "children": []
+    },
+    {
+      "id": "4bcb68fa-8d5b-4c1e-b45a-468d361c0c9c",
+      "type": "paragraph",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [],
+      "children": []
+    },
+    {
+      "id": "607cc798-99bb-4ca3-a3a0-1b4af20e30f1",
+      "type": "heading",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left",
+        "level": 2,
+        "isToggleable": false
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "5. KI: zwei Tracks (wähle einen)",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "02b54e4e-81b3-453e-bae8-764c7d36a497",
+      "type": "table",
+      "props": {
+        "textColor": "default"
+      },
+      "content": {
+        "type": "tableContent",
+        "columnWidths": [
+          null,
+          null,
+          null
+        ],
+        "headerRows": 1,
+        "rows": [
+          {
+            "cells": [
+              {
+                "type": "tableCell",
+                "content": [],
+                "props": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "backgroundColor": "default",
+                  "textColor": "default",
+                  "textAlignment": "left"
+                }
+              },
+              {
+                "type": "tableCell",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Track A — ohne KI",
+                    "styles": {}
+                  }
+                ],
+                "props": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "backgroundColor": "default",
+                  "textColor": "default",
+                  "textAlignment": "left"
+                }
+              },
+              {
+                "type": "tableCell",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Track B — mit KI",
+                    "styles": {}
+                  }
+                ],
+                "props": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "backgroundColor": "default",
+                  "textColor": "default",
+                  "textAlignment": "left"
+                }
+              }
+            ]
+          },
+          {
+            "cells": [
+              {
+                "type": "tableCell",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Artefakt",
+                    "styles": {}
+                  }
+                ],
+                "props": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "backgroundColor": "default",
+                  "textColor": "default",
+                  "textAlignment": "left"
+                }
+              },
+              {
+                "type": "tableCell",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Entscheidungs-/Troubleshooting-Log",
+                    "styles": {}
+                  }
+                ],
+                "props": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "backgroundColor": "default",
+                  "textColor": "default",
+                  "textAlignment": "left"
+                }
+              },
+              {
+                "type": "tableCell",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "KI-Protokoll (Prompts archiviert, Übernahme/Prüfung)",
+                    "styles": {}
+                  }
+                ],
+                "props": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "backgroundColor": "default",
+                  "textColor": "default",
+                  "textAlignment": "left"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "children": []
+    },
+    {
+      "id": "5f77064c-6813-4693-aea8-15308b7ebea5",
+      "type": "paragraph",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Kernanforderungen identisch. Regeln (immer): ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "keine Secrets, personenbezogenen Daten oder Schulzugänge in Prompts",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " (→ ITR: DSGVO/AI Act); KI-Code muss geprüft in ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "deinem",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " Setup laufen; alles muss im Gespräch erklärbar sein.",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "5e34a679-149c-4174-ad3f-c89e540fa004",
+      "type": "paragraph",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [],
+      "children": []
+    },
+    {
+      "id": "ee200493-517b-408a-9c4f-483ff8f6a68f",
+      "type": "heading",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left",
+        "level": 2,
+        "isToggleable": false
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "6. Meilensteine, Demo & Abgabe",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "7c6372dc-d13e-449c-84e2-12d06a8762ba",
+      "type": "table",
+      "props": {
+        "textColor": "default"
+      },
+      "content": {
+        "type": "tableContent",
+        "columnWidths": [
+          null,
+          null
+        ],
+        "headerRows": 1,
+        "rows": [
+          {
+            "cells": [
+              {
+                "type": "tableCell",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Wann",
+                    "styles": {}
+                  }
+                ],
+                "props": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "backgroundColor": "default",
+                  "textColor": "default",
+                  "textAlignment": "left"
+                }
+              },
+              {
+                "type": "tableCell",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Meilenstein",
+                    "styles": {}
+                  }
+                ],
+                "props": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "backgroundColor": "default",
+                  "textColor": "default",
+                  "textAlignment": "left"
+                }
+              }
+            ]
+          },
+          {
+            "cells": [
+              {
+                "type": "tableCell",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "KW49 Di 01.12.",
+                    "styles": {}
+                  }
+                ],
+                "props": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "backgroundColor": "default",
+                  "textColor": "default",
+                  "textAlignment": "left"
+                }
+              },
+              {
+                "type": "tableCell",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "M1 Proposal genehmigt",
+                    "styles": {}
+                  }
+                ],
+                "props": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "backgroundColor": "default",
+                  "textColor": "default",
+                  "textAlignment": "left"
+                }
+              }
+            ]
+          },
+          {
+            "cells": [
+              {
+                "type": "tableCell",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "KW49 Do 03.12.",
+                    "styles": {}
+                  }
+                ],
+                "props": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "backgroundColor": "default",
+                  "textColor": "default",
+                  "textAlignment": "left"
+                }
+              },
+              {
+                "type": "tableCell",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "M2 Pi im Inventory, erster Playbook-Lauf grün",
+                    "styles": {}
+                  }
+                ],
+                "props": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "backgroundColor": "default",
+                  "textColor": "default",
+                  "textAlignment": "left"
+                }
+              }
+            ]
+          },
+          {
+            "cells": [
+              {
+                "type": "tableCell",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "KW50 Di 08.12.",
+                    "styles": {}
+                  }
+                ],
+                "props": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "backgroundColor": "default",
+                  "textColor": "default",
+                  "textAlignment": "left"
+                }
+              },
+              {
+                "type": "tableCell",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "M3 Role + Vault stehen, Playbook läuft durch",
+                    "styles": {}
+                  }
+                ],
+                "props": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "backgroundColor": "default",
+                  "textColor": "default",
+                  "textAlignment": "left"
+                }
+              }
+            ]
+          },
+          {
+            "cells": [
+              {
+                "type": "tableCell",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "KW51 Di 15.12.",
+                    "styles": {}
+                  }
+                ],
+                "props": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "backgroundColor": "default",
+                  "textColor": "default",
+                  "textAlignment": "left"
+                }
+              },
+              {
+                "type": "tableCell",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "M4 fertig; ",
+                    "styles": {}
+                  },
+                  {
+                    "type": "text",
+                    "text": "Abgabe: letzter git push",
+                    "styles": {
+                      "bold": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " auf dieses Repo bis 23:59 Uhr",
+                    "styles": {}
+                  }
+                ],
+                "props": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "backgroundColor": "default",
+                  "textColor": "default",
+                  "textAlignment": "left"
+                }
+              }
+            ]
+          },
+          {
+            "cells": [
+              {
+                "type": "tableCell",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "KW51 Do 17.12. (+ KW52)",
+                    "styles": {}
+                  }
+                ],
+                "props": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "backgroundColor": "default",
+                  "textColor": "default",
+                  "textAlignment": "left"
+                }
+              },
+              {
+                "type": "tableCell",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "M5 ",
+                    "styles": {}
+                  },
+                  {
+                    "type": "text",
+                    "text": "Live-Demo",
+                    "styles": {
+                      "bold": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " 10 Min.: frischer Pi → ",
+                    "styles": {}
+                  },
+                  {
+                    "type": "text",
+                    "text": "ansible-playbook site.yml --ask-vault-pass",
+                    "styles": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " → Dienst läuft → 2. Lauf ",
+                    "styles": {}
+                  },
+                  {
+                    "type": "text",
+                    "text": "changed=0",
+                    "styles": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " → Fragen",
+                    "styles": {}
+                  }
+                ],
+                "props": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "backgroundColor": "default",
+                  "textColor": "default",
+                  "textAlignment": "left"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "children": []
+    },
+    {
+      "id": "106c0721-41fe-48f4-867e-117af2c658b4",
+      "type": "paragraph",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Do-Blöcke sind Projektzeit — komm mit konkretem Stand, nicht mit „geht nicht“. Bewertung und Demo-Fragen: Datei ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "02_AUT_Projekt/01_Beurteilungskriterien.md",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " in diesem Repo.",
+          "styles": {}
+        }
+      ],
+      "children": []
+    }
+  ]
+}
