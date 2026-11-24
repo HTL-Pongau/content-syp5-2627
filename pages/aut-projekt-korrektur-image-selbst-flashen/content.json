@@ -1,0 +1,253 @@
+{
+  "blocks": [
+    {
+      "id": "276cb55d-79ef-4a89-abac-a9ce03222472",
+      "type": "heading",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left",
+        "level": 1,
+        "isToggleable": false
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "⚠️ AUT-Projekt — Korrektur: Image selbst flashen",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "12145e85-073a-4e45-a05f-b1e21fb9a7fc",
+      "type": "paragraph",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Auf der Seite „AUT-Projekt — Projektauftrag“ steht noch „Image vorbereitet“. ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "Korrektur:",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " Das Raspberry-Pi-Image bereitetst du ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "selbst",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " vor — der Lehrer stellt nur den Pi.",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "c791985f-383d-41fe-acc5-ba36723ea63a",
+      "type": "paragraph",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [],
+      "children": []
+    },
+    {
+      "id": "f0652b11-b543-4e0c-afbf-c908ff80f1cb",
+      "type": "heading",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left",
+        "level": 2,
+        "isToggleable": false
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Image vorbereiten (vor dem ersten Ansible-Lauf)",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "755a54c7-44f2-40ae-af85-33bec12ef885",
+      "type": "bulletListItem",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Raspberry Pi Imager",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " öffnen → Gerät wählen → ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "Raspberry Pi OS Lite",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " (64-bit) → SD-Karte wählen",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "34be8c6a-7f98-46bc-b041-fed65c79c275",
+      "type": "bulletListItem",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "„Einstellungen bearbeiten“ (Strg+Umschalt+O): Hostname setzen (z. B. ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "pi-<name>",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": "), ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "SSH aktivieren",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": ", ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "Benutzername + Passwort anlegen",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " — ohne vorkonfigurierten User klappt der erste SSH-Login nicht",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "8a0de459-ef54-4476-a1ac-aeeb2adb8b33",
+      "type": "bulletListItem",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Flashen, Pi booten, im Schulnetz anmelden",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "8975c7b0-0767-4135-9259-6a71a8e54509",
+      "type": "paragraph",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Danach wie gehabt: Ed25519-Key aus AUT#1 per ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "ssh-copy-id",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " auf den Pi, Eintrag in ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "~/.ssh/config",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": ", Pi ins Inventory — ab dann deployt Ansible alles Weitere. Maßgeblich ist die Datei ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "02_AUT_Projekt/00_Projektauftrag.md",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " in deinem Repo (Abschnitt 2).",
+          "styles": {}
+        }
+      ],
+      "children": []
+    }
+  ]
+}
