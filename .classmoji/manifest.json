@@ -9,12 +9,18 @@
             "ansible-vault-pro-aufgabenblock-aut2"
           ],
           "slides": []
+        },
+        "bungen-bis-inkl-aufgabe-6": {
+          "pages": [],
+          "slides": []
         }
       }
     }
   },
   "general": {
-    "pages": [],
+    "pages": [
+      "aut-projekt-projektauftrag-raspberry-pi-ansible"
+    ],
     "slides": []
   }
 }
