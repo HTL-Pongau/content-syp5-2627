@@ -22,7 +22,8 @@
       "assignments": {
         "aut-projekt-raspberry-pi-per-ansible-deployen": {
           "pages": [
-            "aut-projekt-projektauftrag-raspberry-pi-ansible"
+            "aut-projekt-projektauftrag-raspberry-pi-ansible",
+            "aut-projekt-sicherheit-sd-pflicht-checkliste"
           ],
           "slides": []
         }
@@ -30,9 +31,7 @@
     }
   },
   "general": {
-    "pages": [
-      "aut-projekt-sicherheit-sd-pflicht-checkliste"
-    ],
+    "pages": [],
     "slides": []
   }
 }
