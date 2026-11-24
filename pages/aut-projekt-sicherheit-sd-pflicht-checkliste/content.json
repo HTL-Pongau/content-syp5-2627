@@ -1,0 +1,362 @@
+{
+  "blocks": [
+    {
+      "id": "7e792c3b-435c-45f1-ad8c-4c11d3086bc0",
+      "type": "heading",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left",
+        "level": 1,
+        "isToggleable": false
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "🔒 AUT-Projekt — Sicherheit (SD) im deploytten Projekt",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "cfbb7960-75bf-4028-bf08-80ea77a6f9e7",
+      "type": "paragraph",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Ergänzung zum Projektauftrag (Abschnitt 3): Sicherheit ist ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "Pflichtbestandteil",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " deines Ansible-Projekts und eigenes Bewertungskriterium ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "K7 (20 %)",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " in den Beurteilungskriterien.",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "8061b7e4-e18d-498c-b258-7b6610e2f1f9",
+      "type": "paragraph",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [],
+      "children": []
+    },
+    {
+      "id": "56816b86-0afa-46fd-ac93-995b5b11b8c3",
+      "type": "heading",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left",
+        "level": 2,
+        "isToggleable": false
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Checkliste — im Playbook umsetzen",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "863f8bdd-8c97-4f1e-b3b4-21b5a5467613",
+      "type": "bulletListItem",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "SSH härten:",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " Key-only (",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "PasswordAuthentication no",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": ", ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "PermitRootLogin no",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": "), Rechte per ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "become",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " — nie root-Login",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "e3958d8a-b756-4f9e-823a-8db3bdd6552f",
+      "type": "bulletListItem",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Firewall (ufw):",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " nur die Ports, die dein Dienst wirklich braucht",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "32d07d36-9329-4147-a450-ba81501ee748",
+      "type": "bulletListItem",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Secrets nur im Vault",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " — nie Klartext im Repo",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "3a0d09aa-6961-49a6-aa63-02ef0f75cfaf",
+      "type": "bulletListItem",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Least Privilege:",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " Dienst läuft unter eigenem User, keine ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "777",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": "-Rechte",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "33f4542f-7256-4510-9a90-c1a4ea24ff45",
+      "type": "bulletListItem",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Updates:",
+          "styles": {
+            "bold": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " Sicherheits-Updates automatisiert (z. B. ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "unattended-upgrades",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": ")",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "af9945f9-d37e-4776-b89c-f9019d766257",
+      "type": "paragraph",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [],
+      "children": []
+    },
+    {
+      "id": "6b02a86c-7a5e-425e-9bbf-ccf1488777c4",
+      "type": "heading",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left",
+        "level": 2,
+        "isToggleable": false
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Demo-Gespräch",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "5d171284-1062-4749-90b3-e92f8385c000",
+      "type": "paragraph",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Du erklärst 1–2 Maßnahmen an deinem Projekt — warum genau diese? Z. B.: „Welche Ports lässt deine Firewall zu — und warum nur diese?“ · „Warum kein root-Login per SSH — was ist der Unterschied zu ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "become",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": "?“",
+          "styles": {}
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "50e13cd7-0e33-4e67-a126-6501d90ea740",
+      "type": "paragraph",
+      "props": {
+        "backgroundColor": "default",
+        "textColor": "default",
+        "textAlignment": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Details: Page „AUT-Projekt — Projektauftrag“ im Modul „AUT — Ansible“ und Dateien unter ",
+          "styles": {}
+        },
+        {
+          "type": "text",
+          "text": "02_AUT_Projekt/",
+          "styles": {
+            "code": true
+          }
+        },
+        {
+          "type": "text",
+          "text": " in deinem Repo.",
+          "styles": {}
+        }
+      ],
+      "children": []
+    }
+  ]
+}
