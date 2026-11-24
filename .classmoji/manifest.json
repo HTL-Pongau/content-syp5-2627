@@ -29,7 +29,8 @@
   },
   "general": {
     "pages": [
-      "aut-projekt-projektauftrag-raspberry-pi-ansible"
+      "aut-projekt-projektauftrag-raspberry-pi-ansible",
+      "aut-projekt-sicherheit-sd-pflicht-checkliste"
     ],
     "slides": []
   }
