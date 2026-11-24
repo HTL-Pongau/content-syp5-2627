@@ -31,7 +31,9 @@
     }
   },
   "general": {
-    "pages": [],
+    "pages": [
+      "aut-projekt-korrektur-image-selbst-flashen"
+    ],
     "slides": []
   }
 }
